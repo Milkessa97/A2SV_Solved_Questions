@@ -1,6 +1,6 @@
 class Solution:
     def simplifyPath(self, path: str) -> str:
-        path = [dir for dir in path.split('/')]
+        path = path.split('/')
         stack = deque()
         for dir in path:
             if dir == "." or dir == "":
