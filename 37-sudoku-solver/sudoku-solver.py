@@ -4,27 +4,7 @@ class Solution:
         Do not return anything, modify board in-place instead.
         """
         def sec(i,j):
-            if i<3:
-                if j<3:
-                    return 0
-                elif j<6:
-                    return 3
-                else:
-                    return 6
-            elif i>=3 and i<6:
-                if j<3:
-                    return 1
-                elif j<6:
-                    return 4
-                else:
-                    return 7
-            else:
-                if j<3:
-                    return 2
-                elif j<6:
-                    return 5
-                else:
-                    return 8
+            return (i//3)*3 + j//3
 
         row = [set() for i in range(9)]
         col = [set() for i in range(9)]
@@ -65,6 +45,5 @@ class Solution:
             else:
                 if backtrack(new_i,new_j):
                     return True
-            return False
 
         backtrack(0,0)
