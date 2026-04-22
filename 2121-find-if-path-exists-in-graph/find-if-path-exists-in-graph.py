@@ -14,9 +14,6 @@ class Solution:
                 if ver not in visited:
                     if dfs(ver):
                         return True
-
-        res = dfs(source)
-        if res:
-            return True
-        else:
             return False
+
+        return dfs(source)
