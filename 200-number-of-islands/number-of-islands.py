@@ -1,6 +1,5 @@
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        visited = set()
         dirs = [(0,1), (1,0), (0,-1), (-1,0)]
         count = 0
 
@@ -9,11 +8,11 @@ class Solution:
 
         def dfs(row,col):
             nonlocal dirs, count
-            if (row,col) in visited or grid[row][col] == "0":
+            if grid[row][col] == "0":
                 return False
             
             if grid[row][col] == "1":
-                visited.add((row,col))
+                grid[row][col] = "0"
 
                 for x,y in dirs:
                     new_row, new_col = row + x, col + y
