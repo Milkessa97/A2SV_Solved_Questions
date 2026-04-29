@@ -3,14 +3,14 @@ class Solution:
         if not prerequisites:
             return [x for x in range(numCourses)]
 
-        map = defaultdict(int)
+        count = defaultdict(int)
         graph = defaultdict(list)
 
         for pre in prerequisites:
-            map[pre[0]] += 1
+            count[pre[0]] += 1
             graph[pre[1]].append(pre[0])
 
-        que = deque([x for x in range(numCourses) if map[x]==0])
+        que = deque([x for x in range(numCourses) if count[x]==0])
         courses = []
 
         while len(courses) < numCourses:
@@ -19,8 +19,8 @@ class Solution:
 
             course = que.popleft()
             for key in graph[course]:
-                map[key] -= 1
-                if map[key] == 0:
+                count[key] -= 1
+                if count[key] == 0:
                     que.append(key)
                     
             courses.append(course)
